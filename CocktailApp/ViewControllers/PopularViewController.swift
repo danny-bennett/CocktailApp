@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PopularViewController: UIViewController {
     
     var model = CocktailModel()
     var cocktails = [Cocktail]()
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: CocktailModelProtocol {
+extension PopularViewController: CocktailModelProtocol {
     
     // MARK: - Article Model Protocol Methods
     
