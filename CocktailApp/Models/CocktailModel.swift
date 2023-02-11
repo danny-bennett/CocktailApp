@@ -16,11 +16,11 @@ class CocktailModel {
     
     var delegate:CocktailModelProtocol?
     
-    func getCocktails() {
+    func getCocktails(_ searchCriteria:String) {
         
         // Send request to the API
         // Create a string URL
-        let stringUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
+        let stringUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=\(searchCriteria)"
         
         // Create a URL object
         let url = URL(string: stringUrl)
@@ -46,10 +46,12 @@ class CocktailModel {
                 do {
                     
                     // Parse the JSON into CocktailService
+                    //TODO: This force unwrap causing issues when searching for a drink that isn't found
                     let cocktailService = try decoder.decode(CocktailService.self, from: data!)
                     
                     // Get the cocktails
                     let cocktails = cocktailService.drinks!
+                    
                     
                     // Pass it back the view controller in the main thread
                     DispatchQueue.main.async {

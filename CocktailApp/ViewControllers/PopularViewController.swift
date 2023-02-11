@@ -17,7 +17,7 @@ class PopularViewController: UIViewController {
         
         // Get the cocktails from the model
         model.delegate = self
-        model.getCocktails()
+        //model.getCocktails()
        
     }
 }
