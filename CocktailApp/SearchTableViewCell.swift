@@ -29,6 +29,42 @@ class SearchTableViewCell: UITableViewCell {
         cocktailCategoryLabel.text = cocktailToDisplay!.strCategory
         
         // Download and display the cocktail image
+        // Check that the cocktail has an image
+        guard cocktailToDisplay!.strDrinkThumb != nil else {
+            return
+        }
+        
+        // Create url string
+        let urlString = cocktailToDisplay!.strDrinkThumb!
+        
+        // Create the url
+        let url = URL(string: urlString)
+        
+        // Check that the url isn't nil
+        guard url != nil else {
+            print("Couldn't create url object.")
+            return
+        }
+        
+        // Get a URLSession
+        let session = URLSession.shared
+        
+        // Create a datatask
+        let dataTask = session.dataTask(with: url!) { data, response, error in
+            
+            // Check that there is data and no errors
+            if data != nil && error == nil {
+                
+                DispatchQueue.main.async {
+                    
+                    // Display the image data in the image view
+                    self.cocktailImageView.image = UIImage(data: data!)
+                }
+            }
+        }
+        
+        // Kick off the datatask
+        dataTask.resume()
     }
     
     

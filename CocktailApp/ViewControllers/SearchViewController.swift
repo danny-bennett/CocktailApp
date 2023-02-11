@@ -23,7 +23,6 @@ class SearchViewController: UIViewController {
         // Set self as delegate for cocktailModel
         model.delegate = self
         
-        
         // Set self as data source and delegate for table view
         tableView.delegate = self
         tableView.dataSource = self
