@@ -22,6 +22,7 @@ class SearchViewController: UIViewController {
 
         // Set self as delegate for cocktailModel
         model.delegate = self
+        model.getCocktails("s=")
         
         // Set self as data source and delegate for table view
         tableView.delegate = self
@@ -40,7 +41,7 @@ class SearchViewController: UIViewController {
         // TODO: Create a function to trim whitespace from string and replace " " with "_" as done above.
         
         // Get the cocktails from the model
-        model.getCocktails(formattedSearchCriteria)
+        model.getCocktails("s=" + formattedSearchCriteria)
     }
     
 }

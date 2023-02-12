@@ -37,6 +37,15 @@ class SearchTableViewCell: UITableViewCell {
         // Create url string
         let urlString = cocktailToDisplay!.strDrinkThumb!
         
+        // Check the cacheManager before downloading image data
+        if let imageData = CacheManager.retrieveData(urlString) {
+            
+            // There is image data. Set the imageView and return
+            self.cocktailImageView.image = UIImage(data: imageData)
+            return
+            
+        }
+        
         // Create the url
         let url = URL(string: urlString)
         
@@ -55,10 +64,16 @@ class SearchTableViewCell: UITableViewCell {
             // Check that there is data and no errors
             if data != nil && error == nil {
                 
-                DispatchQueue.main.async {
+                // Save data to cacheManager
+                CacheManager.saveData(urlString, data!)
+                
+                if self.cocktailToDisplay!.strDrinkThumb == urlString {
                     
-                    // Display the image data in the image view
-                    self.cocktailImageView.image = UIImage(data: data!)
+                    DispatchQueue.main.async {
+                        
+                        // Display the image data in the image view
+                        self.cocktailImageView.image = UIImage(data: data!)
+                    }
                 }
             }
         }

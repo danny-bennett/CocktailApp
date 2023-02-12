@@ -52,14 +52,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What sounds good? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCf-2N-Smx">
-                                <rect key="frame" x="129" y="94" width="156.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What sounds good? " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCf-2N-Smx">
+                                <rect key="frame" x="129" y="54" width="156.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="100" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qCD-is-TZN">
-                                <rect key="frame" x="0.0" y="179" width="414" height="634"/>
+                                <rect key="frame" x="0.0" y="139" width="414" height="674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="searchCell" rowHeight="100" id="tZz-4o-TYe" customClass="SearchTableViewCell" customModule="CocktailApp" customModuleProvider="target">
@@ -107,7 +107,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDJ-q2-Avu">
-                                <rect key="frame" x="325" y="135" width="69" height="34"/>
+                                <rect key="frame" x="325" y="95" width="69" height="34"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Search">
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -116,8 +116,8 @@
                                     <action selector="searchButton:" destination="Xj1-CM-tk9" eventType="touchUpInside" id="rxy-QY-n2e"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Example: Old Fashioned" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Mf-d5-8TV">
-                                <rect key="frame" x="20" y="135" width="295" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Example: Old Fashioned" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Mf-d5-8TV">
+                                <rect key="frame" x="20" y="95" width="295" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -134,7 +134,7 @@
                             <constraint firstItem="4Mf-d5-8TV" firstAttribute="top" secondItem="UCf-2N-Smx" secondAttribute="bottom" constant="20" id="bvz-hQ-LRW"/>
                             <constraint firstItem="7Ru-uq-F45" firstAttribute="bottom" secondItem="qCD-is-TZN" secondAttribute="bottom" id="fCK-ua-axQ"/>
                             <constraint firstItem="qCD-is-TZN" firstAttribute="top" secondItem="IDJ-q2-Avu" secondAttribute="bottom" constant="10" id="mDg-tX-EtJ"/>
-                            <constraint firstItem="UCf-2N-Smx" firstAttribute="top" secondItem="7Ru-uq-F45" secondAttribute="top" constant="50" id="sIn-5C-SGN"/>
+                            <constraint firstItem="UCf-2N-Smx" firstAttribute="top" secondItem="7Ru-uq-F45" secondAttribute="top" constant="10" id="sIn-5C-SGN"/>
                             <constraint firstItem="UCf-2N-Smx" firstAttribute="centerX" secondItem="KrL-dl-nLD" secondAttribute="centerX" id="w9e-B8-bRh"/>
                             <constraint firstItem="7Ru-uq-F45" firstAttribute="trailing" secondItem="qCD-is-TZN" secondAttribute="trailing" id="wkz-FW-1VU"/>
                         </constraints>
@@ -148,6 +148,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sNx-GO-PQV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1477" y="674"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="1V5-3s-vld">
+            <objects>
+                <viewController id="Zkk-7D-kMA" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PKQ-nb-Uv8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="qoH-PQ-1Y7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U6e-18-yfs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2264" y="674"/>
         </scene>
         <!--Random-->
         <scene sceneID="ThI-to-faX">

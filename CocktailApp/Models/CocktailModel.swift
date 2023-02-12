@@ -20,7 +20,7 @@ class CocktailModel {
         
         // Send request to the API
         // Create a string URL
-        let stringUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=\(searchCriteria)"
+        let stringUrl = "https://www.thecocktaildb.com/api/json/v2/\(Constants.apiKey)/search.php?\(searchCriteria)"
         
         // Create a URL object
         let url = URL(string: stringUrl)
@@ -49,6 +49,9 @@ class CocktailModel {
                     //TODO: This force unwrap causing issues when searching for a drink that isn't found
                     let cocktailService = try decoder.decode(CocktailService.self, from: data!)
                     
+                    guard cocktailService.drinks != nil else {
+                        return
+                    }
                     // Get the cocktails
                     let cocktails = cocktailService.drinks!
                     
