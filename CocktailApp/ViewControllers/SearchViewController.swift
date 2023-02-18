@@ -29,6 +29,26 @@ class SearchViewController: UIViewController {
         tableView.dataSource = self
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // Detect the indexpath the user selected
+        let indexPath = tableView.indexPathForSelectedRow
+        
+        guard indexPath != nil else {
+            // The user hasn't selected anything
+            return
+        }
+        
+        // Get the cocktail the user tapped on
+        let cocktail = cocktails[indexPath!.row]
+        
+        // Get a reference to the detail view controller
+        let detailVC = segue.destination as! detailViewController
+        
+        // Pass information to detail view controller
+        detailVC.cocktail = cocktail
+    }
+    
         
     @IBAction func searchButton(_ sender: Any) {
         
