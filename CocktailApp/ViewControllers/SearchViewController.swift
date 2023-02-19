@@ -22,11 +22,15 @@ class SearchViewController: UIViewController {
 
         // Set self as delegate for cocktailModel
         model.delegate = self
-        model.getCocktails("s=")
+        
         
         // Set self as data source and delegate for table view
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        model.getCocktails("search.php?s=")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -43,7 +47,7 @@ class SearchViewController: UIViewController {
         let cocktail = cocktails[indexPath!.row]
         
         // Get a reference to the detail view controller
-        let detailVC = segue.destination as! detailViewController
+        let detailVC = segue.destination as! DetailViewController
         
         // Pass information to detail view controller
         detailVC.cocktail = cocktail
@@ -61,7 +65,7 @@ class SearchViewController: UIViewController {
         // TODO: Create a function to trim whitespace from string and replace " " with "_" as done above.
         
         // Get the cocktails from the model
-        model.getCocktails("s=" + formattedSearchCriteria)
+        model.getCocktails("search.php?s=" + formattedSearchCriteria)
     }
     
 }
@@ -88,7 +92,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Get a cell
-        let searchCell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as! SearchTableViewCell
+        let searchCell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as! SearchCell
         
         // Customize it
         searchCell.displayCocktail(cocktails[indexPath.row])

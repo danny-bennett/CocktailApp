@@ -20,7 +20,7 @@ class CocktailModel {
         
         // Send request to the API
         // Create a string URL
-        let stringUrl = "https://www.thecocktaildb.com/api/json/v2/\(Constants.apiKey)/search.php?\(searchCriteria)"
+        let stringUrl = "https://www.thecocktaildb.com/api/json/v2/\(Constants.apiKey)/\(searchCriteria)"
         
         // Create a URL object
         let url = URL(string: stringUrl)

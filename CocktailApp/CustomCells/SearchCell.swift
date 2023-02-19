@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchTableViewCell: UITableViewCell {
+class SearchCell: UITableViewCell {
     
     @IBOutlet weak var cocktailImageView: UIImageView!
     
