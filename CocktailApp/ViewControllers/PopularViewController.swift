@@ -19,7 +19,7 @@ class PopularViewController: UIViewController {
         
         // Get the cocktails from the model
         model.delegate = self
-        
+        model.getCocktails("popular.php")
         
         // Set the dataSource and delegate for the tableView as self
         tableView.delegate = self
@@ -27,10 +27,6 @@ class PopularViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-        model.getCocktails("popular.php")
-    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // Detect the indexPath the user selected

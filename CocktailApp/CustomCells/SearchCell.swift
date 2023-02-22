@@ -40,10 +40,10 @@ class SearchCell: UITableViewCell {
         // Check the cacheManager before downloading image data
         if let imageData = CacheManager.retrieveData(urlString) {
             
-            // There is image data. Set the imageView and return
-            self.cocktailImageView.image = UIImage(data: imageData)
-            return
-            
+           
+                // There is image data. Set the imageView and return
+                self.cocktailImageView.image = UIImage(data: imageData)
+               
         }
         
         // Create the url
@@ -82,6 +82,9 @@ class SearchCell: UITableViewCell {
         dataTask.resume()
     }
     
+    override func prepareForReuse() {
+        cocktailImageView.image = nil
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

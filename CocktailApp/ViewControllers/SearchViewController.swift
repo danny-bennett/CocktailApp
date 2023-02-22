@@ -11,6 +11,8 @@ class SearchViewController: UIViewController {
     
     var model = CocktailModel()
     var cocktails = [Cocktail]()
+    var filteredCocktails = [Cocktail]()
+    var filtered = false
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,29 +24,37 @@ class SearchViewController: UIViewController {
 
         // Set self as delegate for cocktailModel
         model.delegate = self
-        
+        model.getCocktails("search.php?s=")
         
         // Set self as data source and delegate for table view
         tableView.delegate = self
         tableView.dataSource = self
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        model.getCocktails("search.php?s=")
+        
+        // Set self as delegate for searchTextField
+        searchTextField.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // Detect the indexpath the user selected
         let indexPath = tableView.indexPathForSelectedRow
+        var cocktail: Cocktail
         
         guard indexPath != nil else {
             // The user hasn't selected anything
             return
         }
         
+        
         // Get the cocktail the user tapped on
-        let cocktail = cocktails[indexPath!.row]
+        if !filteredCocktails.isEmpty {
+            cocktail = filteredCocktails[indexPath!.row]
+        }
+        else {
+            
+            cocktail = cocktails[indexPath!.row]
+        }
+        
         
         // Get a reference to the detail view controller
         let detailVC = segue.destination as! DetailViewController
@@ -53,19 +63,16 @@ class SearchViewController: UIViewController {
         detailVC.cocktail = cocktail
     }
     
+    
+    func filterText(_ query: String!) {
         
-    @IBAction func searchButton(_ sender: Any) {
-        
-        // TODO: fix this force unwrap
-        let searchCriteria:String = searchTextField.text!
-        
-        // Change spaces in searchTextField to underscores
-        let formattedSearchCriteria = searchCriteria.replacingOccurrences(of: " ", with: "_")
-        
-        // TODO: Create a function to trim whitespace from string and replace " " with "_" as done above.
-        
-        // Get the cocktails from the model
-        model.getCocktails("search.php?s=" + formattedSearchCriteria)
+        filteredCocktails.removeAll()
+        for cocktail in cocktails {
+            if cocktail.strDrink!.lowercased().starts(with: query!.lowercased()) {
+                filteredCocktails.append(cocktail)
+            }
+        }
+        tableView.reloadData()
     }
     
 }
@@ -80,13 +87,22 @@ extension SearchViewController: CocktailModelProtocol {
         
         // Reload the table view
         tableView.reloadData()
+        filtered = true
     }
 }
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cocktails.count
+        
+        // If filteredCocktails is not empty, return its count.
+        if !filteredCocktails.isEmpty {
+            return filteredCocktails.count
+        }
+        else {
+            return filtered ? 0 : cocktails.count
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -95,9 +111,23 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let searchCell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as! SearchCell
         
         // Customize it
-        searchCell.displayCocktail(cocktails[indexPath.row])
+        if !filteredCocktails.isEmpty {
+            searchCell.displayCocktail(filteredCocktails[indexPath.row])
+        }
+        else {
+            searchCell.displayCocktail(cocktails[indexPath.row])
+        }
+       
         
         // Return the cell
         return searchCell
+    }
+}
+
+extension SearchViewController: UITextFieldDelegate {
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        
+        filterText(textField.text)
     }
 }
