@@ -12,7 +12,11 @@ protocol CocktailModelProtocol {
     func cocktailsRetrieved(_ cocktails:[Cocktail])
 }
 
+
+
 class CocktailModel {
+    
+    var allCocktails: [Cocktail]?
     
     var delegate:CocktailModelProtocol?
     

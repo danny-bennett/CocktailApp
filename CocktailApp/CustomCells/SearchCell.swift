@@ -40,9 +40,9 @@ class SearchCell: UITableViewCell {
         // Check the cacheManager before downloading image data
         if let imageData = CacheManager.retrieveData(urlString) {
             
-           
-                // There is image data. Set the imageView and return
-                self.cocktailImageView.image = UIImage(data: imageData)
+            // There is image data. Set the imageView and return
+            self.cocktailImageView.image = UIImage(data: imageData)
+            return
                
         }
         
