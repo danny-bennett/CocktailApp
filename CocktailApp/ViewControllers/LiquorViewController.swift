@@ -70,6 +70,11 @@ extension LiquorViewController: UITableViewDelegate, UITableViewDataSource {
         // Return the cell
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Deselect row to get rid of highlight
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 extension LiquorViewController: CocktailModelProtocol {

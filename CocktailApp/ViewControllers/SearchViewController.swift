@@ -32,7 +32,13 @@ class SearchViewController: UIViewController {
         
         // Set self as delegate for searchTextField
         searchTextField.delegate = self
+        
+        // Dismiss keyboard by tapping anywhere on screen
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -75,6 +81,10 @@ class SearchViewController: UIViewController {
         tableView.reloadData()
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Dismiss keyboard when "Enter" is pressed
+        textField.resignFirstResponder()
+    }
 }
 
 extension SearchViewController: CocktailModelProtocol {
@@ -118,9 +128,13 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             searchCell.displayCocktail(cocktails[indexPath.row])
         }
        
-        
         // Return the cell
         return searchCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Deselect row to get rid of highlight
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
@@ -131,3 +145,5 @@ extension SearchViewController: UITextFieldDelegate {
         filterText(textField.text)
     }
 }
+
+

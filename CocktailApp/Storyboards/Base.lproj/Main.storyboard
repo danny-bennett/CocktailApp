@@ -180,7 +180,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Example: Old Fashioned" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Mf-d5-8TV">
                                 <rect key="frame" x="20" y="148" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Ru-uq-F45"/>
@@ -591,7 +591,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ONP-Mo-9lz"/>
+        <segue reference="5BN-MN-h6I"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="list.bullet" catalog="system" width="128" height="87"/>
