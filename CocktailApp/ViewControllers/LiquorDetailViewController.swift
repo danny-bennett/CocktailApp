@@ -11,9 +11,7 @@ class LiquorDetailViewController: UIViewController {
     
     var model = CocktailModel()
     var cocktails = [Cocktail]()
-    var cocktailsWithInfo = [Cocktail]()
     var selectedLiquor: String? = nil
-    var allCocktails = [Cocktail]()
     
     @IBOutlet weak var liquorLabel: UILabel!
     
@@ -55,8 +53,10 @@ class LiquorDetailViewController: UIViewController {
         // Get a reference to the detail view controller
         let detailVC = segue.destination as! DetailViewController
         
+        
+        
         // Pass coctail to the detailVC
-        detailVC.cocktail = cocktail
+        detailVC.cocktail = CacheManager.retrieveCocktail(cocktail.idDrink!)
     }
 
 }

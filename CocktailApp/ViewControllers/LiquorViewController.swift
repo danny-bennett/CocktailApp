@@ -9,8 +9,10 @@ import UIKit
 
 class LiquorViewController: UIViewController {
     
+    var model = CocktailModel()
     var cocktails = [Cocktail]()
     var liquors = ["Vodka", "Rum", "Whiskey", "Gin", "Tequila", "Brandy"]
+    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,6 +22,9 @@ class LiquorViewController: UIViewController {
         // Set the tableView's delegate and datasourse as self
         tableView.delegate = self
         tableView.dataSource = self
+        
+        model.delegate = self
+        model.getCocktails("search.php?s=")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -41,7 +46,7 @@ class LiquorViewController: UIViewController {
         
         // Pass liquor to the detailVC
         detailVC.selectedLiquor = liquor
-        detailVC.allCocktails = cocktails
+        
         
         
     }
@@ -67,4 +72,9 @@ extension LiquorViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-
+extension LiquorViewController: CocktailModelProtocol {
+    func cocktailsRetrieved(_ cocktails: [Cocktail]) {
+        self.cocktails = cocktails
+    }
+    
+}

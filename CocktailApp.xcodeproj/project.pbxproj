@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0113CDB729998E51007F92EA /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0113CDB629998E51007F92EA /* DetailCell.swift */; };
+		01426C8B29AC879500BFD360 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01426C8A29AC879500BFD360 /* Constants.swift */; };
 		015A35AD29AAAAE9006D1304 /* LiquorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015A35AC29AAAAE9006D1304 /* LiquorDetailViewController.swift */; };
 		01834CDE29A6FED60004282B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01834CDD29A6FED60004282B /* Constants.swift */; };
 		01834CE229AA4FF10004282B /* LiquorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01834CE129AA4FF10004282B /* LiquorCell.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		0113CDB629998E51007F92EA /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		01426C8A29AC879500BFD360 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		015A35AC29AAAAE9006D1304 /* LiquorDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquorDetailViewController.swift; sourceTree = "<group>"; };
 		01834CDD29A6FED60004282B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		01834CE129AA4FF10004282B /* LiquorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquorCell.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				01DBD2FE29A1CD41008E0829 /* CustomCells */,
 				01CA2F40299928DC00140256 /* CacheManager.swift */,
 				01834CDD29A6FED60004282B /* Constants.swift */,
+				01426C8A29AC879500BFD360 /* Constants.swift */,
 				01E0FA7929934C740055A71C /* AppDelegate.swift */,
 				01E0FA7B29934C740055A71C /* SceneDelegate.swift */,
 				01E0FA8F29934D8C0055A71C /* Cocktail.swift */,
@@ -210,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01E0FA7E29934C740055A71C /* PopularViewController.swift in Sources */,
+				01426C8B29AC879500BFD360 /* Constants.swift in Sources */,
 				01E0FA9429934F7A0055A71C /* CocktailModel.swift in Sources */,
 				015A35AD29AAAAE9006D1304 /* LiquorDetailViewController.swift in Sources */,
 				0113CDB729998E51007F92EA /* DetailCell.swift in Sources */,

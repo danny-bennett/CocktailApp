@@ -10,6 +10,7 @@ import Foundation
 class CacheManager {
     
     static var imageDictionary = [String:Data]()
+    static var cocktailDictionary = [String:Cocktail]()
     
     static func saveData(_ url:String, _ imageData:Data) {
         
@@ -21,5 +22,16 @@ class CacheManager {
         
         // Return saved image data or nil 
         return imageDictionary[url]
+    }
+    
+    static func saveCocktail(_ id:String, _ cocktail:Cocktail) {
+        
+        cocktailDictionary[id] = cocktail
+        
+    }
+    
+    static func retrieveCocktail(_ id:String) -> Cocktail {
+        
+        return cocktailDictionary[id]!
     }
 }

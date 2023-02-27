@@ -13,8 +13,6 @@ class DetailViewController: UIViewController {
     var ingredientsToDisplay = [String?]()
     var measurementToDisplay = [String?]()
     let sectionTitles = ["Ingredients", "Instructions"]
-    var allCocktails:[Cocktail]?
-    
     
     @IBOutlet weak var nameLabel: UILabel!
     
@@ -32,19 +30,24 @@ class DetailViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
         // Set the name label
         nameLabel.text = cocktail!.strDrink
         
         // Set the category label
         categoryLabel.text = cocktail!.strCategory
-            
+        
         if let imageData = CacheManager.retrieveData(cocktail!.strDrinkThumb!) {
-                
+            
             // There is data, continue
             // Set the image view
             cocktailImageView.image = UIImage(data: imageData)
         }
+        
+        
     }
     
     func populateIngredientsAndInstructions() {
@@ -129,6 +132,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         
         // Return cell
         return cell
+        
+        
     }
 }
-

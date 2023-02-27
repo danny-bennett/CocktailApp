@@ -59,7 +59,11 @@ class CocktailModel {
                     // Get the cocktails
                     let cocktails = cocktailService.drinks!
                     
-                    
+                    for i in 0..<cocktails.count {
+                        if CacheManager.cocktailDictionary[cocktails[i].idDrink!] == nil {
+                            CacheManager.saveCocktail(cocktails[i].idDrink!, cocktails[i])
+                        }
+                    }
                     // Pass it back the view controller in the main thread
                     DispatchQueue.main.async {
                         self.delegate?.cocktailsRetrieved(cocktails)
