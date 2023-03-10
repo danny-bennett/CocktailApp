@@ -10,7 +10,6 @@
 		0113CDB729998E51007F92EA /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0113CDB629998E51007F92EA /* DetailCell.swift */; };
 		01426C8B29AC879500BFD360 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01426C8A29AC879500BFD360 /* Constants.swift */; };
 		015A35AD29AAAAE9006D1304 /* LiquorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015A35AC29AAAAE9006D1304 /* LiquorDetailViewController.swift */; };
-		01834CDE29A6FED60004282B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01834CDD29A6FED60004282B /* Constants.swift */; };
 		01834CE229AA4FF10004282B /* LiquorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01834CE129AA4FF10004282B /* LiquorCell.swift */; };
 		01CA2F3F29973FBB00140256 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA2F3E29973FBB00140256 /* SearchCell.swift */; };
 		01CA2F41299928DC00140256 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA2F40299928DC00140256 /* CacheManager.swift */; };
@@ -33,7 +32,6 @@
 		0113CDB629998E51007F92EA /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		01426C8A29AC879500BFD360 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		015A35AC29AAAAE9006D1304 /* LiquorDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquorDetailViewController.swift; sourceTree = "<group>"; };
-		01834CDD29A6FED60004282B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		01834CE129AA4FF10004282B /* LiquorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquorCell.swift; sourceTree = "<group>"; };
 		01CA2F3E29973FBB00140256 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		01CA2F40299928DC00140256 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
@@ -99,7 +97,6 @@
 				01E0FA952995B97A0055A71C /* ViewControllers */,
 				01DBD2FE29A1CD41008E0829 /* CustomCells */,
 				01CA2F40299928DC00140256 /* CacheManager.swift */,
-				01834CDD29A6FED60004282B /* Constants.swift */,
 				01426C8A29AC879500BFD360 /* Constants.swift */,
 				01E0FA7929934C740055A71C /* AppDelegate.swift */,
 				01E0FA7B29934C740055A71C /* SceneDelegate.swift */,
@@ -219,7 +216,6 @@
 				0113CDB729998E51007F92EA /* DetailCell.swift in Sources */,
 				01E0FA7A29934C740055A71C /* AppDelegate.swift in Sources */,
 				01E0FA9B2995B9C60055A71C /* SearchViewController.swift in Sources */,
-				01834CDE29A6FED60004282B /* Constants.swift in Sources */,
 				01834CE229AA4FF10004282B /* LiquorCell.swift in Sources */,
 				01E0FA7C29934C740055A71C /* SceneDelegate.swift in Sources */,
 				01E0FA9029934D8C0055A71C /* Cocktail.swift in Sources */,

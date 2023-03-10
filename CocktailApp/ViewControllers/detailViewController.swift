@@ -29,7 +29,6 @@ class DetailViewController: UIViewController {
         populateIngredientsAndInstructions()
         tableView.delegate = self
         tableView.dataSource = self
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -132,7 +131,5 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         
         // Return cell
         return cell
-        
-        
     }
 }
