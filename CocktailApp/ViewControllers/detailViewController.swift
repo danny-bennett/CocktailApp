@@ -45,6 +45,52 @@ class DetailViewController: UIViewController {
             // Set the image view
             cocktailImageView.image = UIImage(data: imageData)
         }
+        else {
+            
+            // Download image data and set cocktailImageView
+            
+            guard cocktail!.strDrinkThumb != nil else {
+                return
+            }
+            
+            // Create url string
+            let urlString = cocktail!.strDrinkThumb!
+            
+            // Create the url
+            let url = URL(string: urlString)
+            
+            // Check that the url isn't nil
+            guard url != nil else {
+                print("Couldn't create url object.")
+                return
+            }
+            
+            // Get a URLSession
+            let session = URLSession.shared
+            
+            // Create a datatask
+            let dataTask = session.dataTask(with: url!) { data, response, error in
+                
+                // Check that there is data and no errors
+                if data != nil && error == nil {
+                    
+                    // Save data to cacheManager
+                    CacheManager.saveData(urlString, data!)
+                    
+                    if self.cocktail!.strDrinkThumb == urlString {
+                        
+                        DispatchQueue.main.async {
+                            
+                            // Display the image data in the image view
+                            self.cocktailImageView.image = UIImage(data: data!)
+                        }
+                    }
+                }
+            }
+            
+            // Kick off the datatask
+            dataTask.resume()
+        }
         
         
     }
@@ -128,6 +174,9 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         
         // Customize the cell
         cell.displayDetails(cocktail!, indexPath, measurementToDisplay, ingredientsToDisplay)
+        
+        // Make cells unselectable in the detailView
+        cell.selectionStyle = .none
         
         // Return cell
         return cell
